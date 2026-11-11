@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>免费影音库</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <h1>免费影音库</h1>
+  <p class="subtitle">免费直播 · 点播轮播 · 全部免费 · 数据快照 2026-11-11</p>
+  <div class="search-row">
+    <input id="search" type="search" placeholder="搜索频道 / 节目名…" autocomplete="off">
+  </div>
+  <nav class="chips" id="chips"></nav>
+  <div class="filters">
+    <label id="countryWrap" hidden>国家
+      <select id="countrySel"></select>
+    </label>
+    <label id="groupWrap" hidden>分组
+      <select id="groupSel"></select>
+    </label>
+  </div>
+</header>
+
+<main>
+  <section id="player" class="player" hidden>
+    <div class="player-head">
+      <div>
+        <strong id="nowName"></strong>
+        <span id="nowMeta" class="meta"></span>
+      </div>
+      <button id="closePlayer" class="icon-btn" aria-label="关闭播放器">✕</button>
+    </div>
+    <video id="video" controls playsinline preload="none"></video>
+    <div id="playError" class="play-error" hidden>
+      这个台在网页端播不出来，换一个试试，或把地址粘贴到播放器 App 里。
+    </div>
+    <div class="player-actions">
+      <button id="copyUrl" class="btn">复制播放地址</button>
+      <span id="copyOk" class="copy-ok" hidden>已复制</span>
+    </div>
+  </section>
+
+  <p id="countLine" class="count-line"></p>
+  <section id="grid" class="grid" aria-live="polite"></section>
+
+  <section class="more">
+    <h2>更多免费片源</h2>
+    <p class="more-note">以下为外部免费平台，点击后离开本站：</p>
+    <div class="more-links">
+      <a class="more-card" href="https://www.youtube.com/results?search_query=%E5%85%8D%E8%B4%B9%E7%94%B5%E5%BD%B1" target="_blank" rel="noopener">
+        <strong>YouTube 免费电影</strong><span>官方免费影视内容，部分带中文字幕</span>
+      </a>
+      <a class="more-card" href="https://www.yangshipin.cn/" target="_blank" rel="noopener">
+        <strong>央视频</strong><span>央视免费直播与节目</span>
+      </a>
+      <a class="more-card" href="https://archive.org/details/movies" target="_blank" rel="noopener">
+        <strong>Internet Archive 电影</strong><span>公版老片免费看（多为英文，无中文字幕）</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>数据快照：2026-11-11。直播源来自公开免费 m3u（国内源每 6 小时自动更新），本站数据随重建刷新；个别频道可能随时失效。</p>
+  <p>全部内容免费。本站不存储任何视频。电影 / 少儿 / 晚会为直播源内的点播 / 轮播条目，非正版片库；画质与字幕以源站为准。</p>
+  <p>部分播放地址为 http 链接，在 https 网页里可能被浏览器拦截而无法播放，可点「复制播放地址」粘贴到播放器 App（如 VLC）里看。</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
